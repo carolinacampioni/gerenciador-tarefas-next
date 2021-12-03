@@ -1,24 +1,23 @@
-import { Header } from "../components/Header";
 import { NextPage } from "next";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
 
 type HomeProps = {
     setToken(s: string) : void
 }
 
+export const Home : NextPage<HomeProps> = ({setToken}) => {
 
-export const Home: NextPage<HomeProps> = ({setToken}) => {
-    
-    const sair=()=>{
-        localStorage.removeItem('accessToken' );
+    const sair = () =>{
+        localStorage.removeItem('accessToken');
         localStorage.removeItem('userName');
         localStorage.removeItem('userEmail');
         setToken('');
-
     }
-    
-    return(
-       <>
-       <Header sair={sair}/>
-       </>
-    )
+
+    return (
+    <>
+        <Header sair={sair}/>
+        <Footer />
+    </>);
 }
