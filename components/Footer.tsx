@@ -1,14 +1,15 @@
+
 import moment from "moment";
 import { NextPage } from "next";
 type FooterProps = {
+    showModal() : void
 }
 
-export const Footer : NextPage<FooterProps> = ({ }) => {
+export const Footer : NextPage<FooterProps> = ({ showModal}) => {
     return (
         <div className="container-footer">
-            <button><img src="/add.svg" alt="Adiciona Tarefa"/> Adicionar uma tarefa</button>
-            <span>© Copyright {moment().year()}. Todos os d
-              reitos reservados.</span>
+            <button onClick={showModal}><img src="/add.svg" alt="Adiciona Tarefa"/> Adicionar uma tarefa</button>
+            <span>© Copyright {moment().year()}. Todos os direitos reservados.</span>
         </div>
     );
 }

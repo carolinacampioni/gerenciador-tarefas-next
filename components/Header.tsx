@@ -1,14 +1,15 @@
-import { useEffect,useState } from "react";
 import { NextPage } from "next";
+import { useEffect, useState } from "react";
 
 type HeaderProps = {
-    sair(): void
+    sair() : void,
+    showModal() : void
 }
 
-export const Header : NextPage<HeaderProps> = ({sair}) => {
+export const Header : NextPage<HeaderProps> = ({ sair, showModal}) => {
 
-    const[name, setName] = useState('');
-    
+    const [name, setName] = useState('');
+
     useEffect(() => {
         if(typeof window !== 'undefined'){
             const userName = localStorage.getItem('userName');
@@ -21,18 +22,18 @@ export const Header : NextPage<HeaderProps> = ({sair}) => {
         }
       }, [])
 
-    return(
+    return (
         <div className="container-header">
-            <img src="/logo.svg" alt="Logo FIAP" className="logo"></img>
-            <button>Adicionar Tarefa</button>
+            <img src="/logo.svg" alt="Logo Fiap" className="logo" />
+            <button onClick={showModal}>+ Adicionar Tarefa</button>
             <div className="mobile">
-                <span>Olá,{name}.</span>
-                <img src="/exit-mobile.svg" alt="Logo FIAP" className="logo" onClick={sair}></img>
+                <span>Olá, {name}</span>
+                <img  src="/exit-mobile.svg" alt="Sair" onClick={sair} />
             </div>
             <div className="desktop">
-                <span>Olá,{name}.</span>
-                <img src="/exit-desktop.svg" alt="Logo FIAP" className="logo" onClick={sair}></img>
+                <span>Olá, {name}</span>
+                <img src="/exit-desktop.svg" alt="Sair" onClick={sair}/>
             </div>
         </div>
-    )
+    );
 }
