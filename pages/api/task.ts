@@ -1,4 +1,3 @@
-
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { DefaultResponseMsg } from '../../types/DefaultResponseMsg';
 import { connectDb } from '../../middlewares/connectDb';

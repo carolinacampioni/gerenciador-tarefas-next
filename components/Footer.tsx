@@ -1,4 +1,3 @@
-
 import moment from "moment";
 import { NextPage } from "next";
 type FooterProps = {

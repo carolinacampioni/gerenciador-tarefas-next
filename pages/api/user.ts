@@ -24,7 +24,7 @@ const userEndpoint = async (req : NextApiRequest, res : NextApiResponse<DefaultR
 
         const existingUserWithEmail = await UserModel.find({email : body.email});
         if(existingUserWithEmail && existingUserWithEmail.length){
-            return res.status(400).json({error: 'Este e-mail já existe na base.'});
+            return res.status(400).json({ error : 'Já existe usuário com o email informado'});
         }
 
         const user = {

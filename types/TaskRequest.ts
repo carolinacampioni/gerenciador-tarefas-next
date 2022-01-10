@@ -1,5 +1,5 @@
 export type TaskRequest = {
-    name: string,
-    previsionDate: string,
+    name : string,
+    previsionDate : string,
     finishDate? : string
 }
